@@ -1,39 +1,127 @@
-# qa-portfolio
 # QA Portfolio — Vladyslav Makovskyi
 
-Manual QA Engineer | Zaporizhzhia, Ukraine
+**Junior QA Engineer (Manual + API Testing)**  
+📍 Ukraine | Open to Remote (EU)
+
+---
 
 ## About Me
-Aspiring QA Engineer with hands-on experience in manual testing,
-bug reporting, API testing and SQL. Completed intensive QA training
-and worked on non-commercial projects including AI bot testing.
+
+Junior QA Engineer with commercial experience in testing AI-based systems and hands-on experience in game testing.
+
+Skilled in manual and API testing, bug reporting, and SQL data validation. Experienced in working with REST APIs, Postman collections, and debugging tools.
+
+Focused on improving product quality and growing towards backend/API testing.
+
+---
+
+## Key Achievements
+
+- Reported 30+ bugs with different severity levels (UI, API, logic)
+- Identified critical issues in API validation and frontend behavior
+- Created structured bug reports with clear reproduction steps
+- Performed exploratory testing to improve test coverage
+
+---
 
 ## Skills
-- **Manual Testing:** Functional, Regression, Smoke, Sanity
-- **Bug Tracking:** Jira (bug reports, labels, priorities)
-- **API Testing:** Postman (GET/POST requests, automated tests, collections)
-- **Database:** SQL (SELECT, WHERE, JOIN, COUNT, ORDER BY)
-- **Tools:** DevTools, Git, GitHub
-- **Methodologies:** SDLC, STLC, BVA, Test Design
+
+**Testing:**  
+Functional, Regression, Smoke, Sanity, Exploratory  
+
+**API Testing:**  
+REST API, Postman, Swagger, JSON validation  
+
+**Database:**  
+SQL (JOIN, GROUP BY, filtering, aggregations)  
+
+**Tools:**  
+Jira, Chrome DevTools, Git  
+
+**Methodologies:**  
+SDLC, STLC, BVA, Test Design  
+
+---
 
 ## Test Artifacts
-### Bug Reports (Jira)
+
+### 🐞 Bug Reports (Jira)
+
 | ID | Title | Severity | Priority |
 |---|---|---|---|
-| KAN-1 | [Forgot Password] Internal Server Error on "Retrieve password" | Major | High |
-| KAN-2 | [Broken Images] Two images fail to load — 404 error | Minor | Medium |
-| KAN-3 | [Dynamic Loading] "Start" button active during loading | Minor | Low |
-| KAN-4 | [POST /api/users] Server returns 201 on empty request body | Major | High |
+| KAN-1 | Forgot Password returns 500 error | Major | High |
+| KAN-2 | Broken images return 404 | Minor | Medium |
+| KAN-3 | Start button active during loading | Minor | Low |
+| KAN-4 | API allows empty user creation | Major | High |
 
-### Postman Collection
-- 3 requests: GET all users, POST create user, GET user by id
-- 11 automated tests (status codes, response time, JSON structure)
-- Environment variables, request chaining
+---
 
-### SQL Practice
-- Tables: users, bugs
-- Queries: SELECT, WHERE, AND/OR, COUNT, ORDER BY, JOIN
+### 🔍 Example Bug Report (API)
 
-## Education
-**Zaporizhzhia National Technical University (ZNTU)**
-Master's & Bachelor's degree — Specialty 141
+**Title:** POST /api/users returns 201 Created with empty body  
+
+**Severity:** Major  
+**Priority:** High  
+
+**Environment:**  
+API: https://reqres.in/api/users  
+Tool: Postman  
+
+**Steps to reproduce:**
+1. Send POST request to `/api/users`
+2. Add valid API key in headers
+3. Set body to empty JSON: `{}`  
+4. Click Send  
+
+**Expected result:**  
+Server returns **400 Bad Request** with validation message  
+
+**Actual result:**  
+Server returns **201 Created** and creates empty object  
+
+**Impact:**  
+Allows creation of invalid data without required fields  
+
+---
+
+### 🔌 API Testing (Postman)
+
+Tested endpoints:
+- GET /users
+- POST /users
+- GET /users/{id}
+
+Validation:
+- Status codes (200, 201, 400, 404)
+- Response time
+- JSON structure validation
+
+Test scenarios:
+- Positive cases
+- Negative cases (empty body, invalid data)
+- Edge cases
+
+Features used:
+- Environment variables
+- Request chaining
+- Basic automated tests
+
+---
+
+### 🗄 SQL Practice
+
+Used SQL for validating backend data:
+
+```sql
+SELECT 
+users.name AS user_name,
+bugs.title AS bug_title,
+bugs.status AS bug_status,
+bugs.created_at AS created_date,
+COUNT(bugs.id) OVER (PARTITION BY bugs.user_id) AS total_bugs_per_user
+FROM bugs
+INNER JOIN users
+ON bugs.user_id = users.id
+WHERE bugs.status = 'open'
+AND bugs.created_at >= '2024-01-01'
+ORDER BY bugs.created_at DESC;
