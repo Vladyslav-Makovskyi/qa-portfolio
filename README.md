@@ -1,127 +1,32 @@
-# QA Portfolio — Vladyslav Makovskyi
+# QA Portfolio: Vladyslav Makovskyi
 
-**Junior QA Engineer (Manual + API Testing)**  
-📍 Ukraine | Open to Remote (EU)
+**Manual QA Engineer** · Ukraine · Remote
+[LinkedIn](https://www.linkedin.com/in/vladyslav-makovskyi-04795b359) · vladmakovscky@gmail.com
 
----
+About 1 year of QA experience in web/SaaS products, AI systems and PC games. Now I test 8+ client products in parallel at Cyber Pioneers: B2B ordering with complex pricing, Stripe subscriptions, REST APIs, AI features, a corporate messenger on Web, Desktop and mobile.
 
-## About Me
+At work so far: **100+ bug reports** (almost half high or urgent) and **120+ retested developer tasks** on DEV, STAGE and production. Work projects belong to clients, so this repository shows the same skills on public training systems.
 
-Junior QA Engineer with commercial experience in testing AI-based systems and hands-on experience in game testing.
+## What is here
 
-Skilled in manual and API testing, bug reporting, and SQL data validation. Experienced in working with REST APIs, Postman collections, and debugging tools.
+| Section | What it shows |
+|---|---|
+| [Test design](test-design/booking-api-test-design.md) | Assumptions about the rules, equivalence classes, boundary values and a checklist for creating a booking |
+| [API testing](api-testing) | Postman collection with 16 requests and 37 assertions, request chaining, Newman HTML report |
+| [Bug reports](bug-reports) | 5 defects found with this collection: 500 instead of 400, impossible dates, invalid prices |
+| [SQL](sql) | 9 tasks on a small shop database, from SELECT to JOIN and GROUP BY, plus QA data checks |
 
-Focused on improving product quality and growing towards backend/API testing.
-
----
-
-## Key Achievements
-
-- Reported 30+ bugs with different severity levels (UI, API, logic)
-- Identified critical issues in API validation and frontend behavior
-- Created structured bug reports with clear reproduction steps
-- Performed exploratory testing to improve test coverage
-
----
+The first three sections are one piece of work on one feature: from test design to automated checks to bug reports.
 
 ## Skills
 
-**Testing:**  
-Functional, Regression, Smoke, Sanity, Exploratory  
+- **Testing:** functional, regression, smoke, retest, exploratory, negative, API, release testing on production, Web, Desktop and mobile, localization, responsive, payments (Stripe test mode), AI features
+- **Tools:** Postman, Newman, Swagger, Chrome DevTools, ClickUp, Jira, Stripe Dashboard, Figma, WordPress
+- **API:** REST, JSON, HTTP methods and status codes, token auth
+- **SQL:** SELECT, WHERE, JOIN, GROUP BY, HAVING
+- **Process:** SDLC/STLC, bug lifecycle, severity and priority, test design techniques, sprints
 
-**API Testing:**  
-REST API, Postman, Swagger, JSON validation  
+## Education
 
-**Database:**  
-SQL (JOIN, GROUP BY, filtering, aggregations)  
-
-**Tools:**  
-Jira, Chrome DevTools, Git  
-
-**Methodologies:**  
-SDLC, STLC, BVA, Test Design  
-
----
-
-## Test Artifacts
-
-### 🐞 Bug Reports (Jira)
-
-| ID | Title | Severity | Priority |
-|---|---|---|---|
-| KAN-1 | Forgot Password returns 500 error | Major | High |
-| KAN-2 | Broken images return 404 | Minor | Medium |
-| KAN-3 | Start button active during loading | Minor | Low |
-| KAN-4 | API allows empty user creation | Major | High |
-
----
-
-### 🔍 Example Bug Report (API)
-
-**Title:** POST /api/users returns 201 Created with empty body  
-
-**Severity:** Major  
-**Priority:** High  
-
-**Environment:**  
-API: https://reqres.in/api/users  
-Tool: Postman  
-
-**Steps to reproduce:**
-1. Send POST request to `/api/users`
-2. Add valid API key in headers
-3. Set body to empty JSON: `{}`  
-4. Click Send  
-
-**Expected result:**  
-Server returns **400 Bad Request** with validation message  
-
-**Actual result:**  
-Server returns **201 Created** and creates empty object  
-
-**Impact:**  
-Allows creation of invalid data without required fields  
-
----
-
-### 🔌 API Testing (Postman)
-
-Tested endpoints:
-- GET /users
-- POST /users
-- GET /users/{id}
-
-Validation:
-- Status codes (200, 201, 400, 404)
-- Response time
-- JSON structure validation
-
-Test scenarios:
-- Positive cases
-- Negative cases (empty body, invalid data)
-- Edge cases
-
-Features used:
-- Environment variables
-- Request chaining
-- Basic automated tests
-
----
-
-### 🗄 SQL Practice
-
-Used SQL for validating backend data:
-
-```sql
-SELECT 
-users.name AS user_name,
-bugs.title AS bug_title,
-bugs.status AS bug_status,
-bugs.created_at AS created_date,
-COUNT(bugs.id) OVER (PARTITION BY bugs.user_id) AS total_bugs_per_user
-FROM bugs
-INNER JOIN users
-ON bugs.user_id = users.id
-WHERE bugs.status = 'open'
-AND bugs.created_at >= '2024-01-01'
-ORDER BY bugs.created_at DESC;
+National Technical University, Zaporizhzhia. Electrical Engineering, Master's degree.
+English B1.
